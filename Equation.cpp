@@ -1,14 +1,11 @@
-#include <iostream>
-#include <cmath>
-void solve(float a_, float b_)
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include "doctest.h"
+int solve(float a_, float b_)
 {
-    std::cout<<-b_/a_;
+    return -b_/a_;
 }
-int main()
+TEST_CASE("Forme")
 {
-        // ax+b=0
-        // Siano a e b valori arbitrari
-    float a=1;
-    float b=2;
-    solve(a,b);
+    CHECK(solve(1,5)==-5);
+    CHECK(solve(3,4)==-4/3);
 }
