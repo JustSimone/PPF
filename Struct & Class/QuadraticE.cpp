@@ -24,7 +24,9 @@ void solve(double a, double b, double c)
         comp x2_;
         x1_.r=(-b-sqrt((b*b)-(4*a*c)))/(2*a);
         x2_.r=(-b+sqrt((b*b)-(4*a*c)))/(2*a);
-        sol solution {x1_, x2_};
+        sol solution;
+        solution.x1 = x1_;
+        solution.x2 = x2_;
         std::cout<<solution.x1.r<<'\n'<<solution.x2.r;
     }
     else
@@ -36,19 +38,31 @@ void solve(double a, double b, double c)
         c2.i=sqrt(-((b*b)-(4*a*c)))/(2*a);
         c2.r=-b/(2*a);
 
-        sol solution {c1, c2};
+        sol solution;
+        solution.x1 = c1;
+        solution.x2 = c2;
+
         if (c1.i<0&&c2.i>0)
-        std::cout<<solution.x1.r<<solution.x1.i<<'i'<<'\n'<<solution.x2.r<<'+'<<solution.x2.i<<'i';
+        std::cout<<solution.x1.r<<solution.x1.i<<'i'<<'\n'<<solution.x2.r<<'+'<<solution.x2.i<<'i'<<'\n';
         else if (c1.i<0 && c1.i<0)
-        std::cout<<solution.x1.r<<solution.x1.i<<'i'<<'\n'<<solution.x2.r<<solution.x2.i<<'i';
+        std::cout<<solution.x1.r<<solution.x1.i<<'i'<<'\n'<<solution.x2.r<<solution.x2.i<<'i'<<'\n';
         else if (c1.i>0&&c2.i<0)
-        std::cout<<solution.x1.r<<'+'<<solution.x1.i<<'i'<<'\n'<<solution.x2.r<<solution.x2.i<<'i';
+        std::cout<<solution.x1.r<<'+'<<solution.x1.i<<'i'<<'\n'<<solution.x2.r<<solution.x2.i<<'i'<<'\n';
         else
-        std::cout<<solution.x1.r<<'+'<<solution.x1.i<<'i'<<'\n'<<solution.x2.r<<'+'<<solution.x2.i<<'i';
+        std::cout<<solution.x1.r<<'+'<<solution.x1.i<<'i'<<'\n'<<solution.x2.r<<'+'<<solution.x2.i<<'i'<<'\n';
     }
 }
 
 int main()
 {
-solve(1.,2.,3.);
+  double a,b,c;
+  std::cout << "Inserisci i coeffincenti a, b, c" << '\n';
+  std::cout << "[ax2 + bx + c = 0]" << '\n';
+  std::cout << "a = ";
+  std::cin >> a;
+  std::cout << "b = ";
+  std::cin >> b;
+  std::cout << "c = ";
+  std::cin >> c;
+  solve(a,b,c);
 }
